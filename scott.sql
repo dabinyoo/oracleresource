@@ -36,3 +36,84 @@ from emp;
 
 select empno, ename 사원명,job "직 책", sal*12+comm ANNSAL
 from emp;
+
+select ename, sal
+from emp
+order by sal;
+
+select *
+from emp
+order by deptno, sal desc;
+
+--[실습] emp 테이블의 모든 열 출력
+--empno => employee_no
+--ename => employee_name
+--mgr => manager
+--sal => salary
+--comm => commission
+--deptno => department_no
+--부서 번호를 기준으로 내림차순으로 정렬하되 부서번호가 같다면
+--사원 이름을 기준으로 오름차순 정렬
+select empno employee_no,ename employee_name,job, mgr manager,hiredate,sal salary,comm commission,deptno department_no
+from emp
+order by deptno desc, ename;
+
+select *
+from emp
+where deptno=30 AND job='SALESMAN';
+
+select *
+from emp
+where empno=7499 AND deptno=30;
+
+select *
+from emp
+where deptno=30 OR job='CLERK';
+
+--산술연산자 : +, -, *, /, mod(나머지- 표준은 아님(오라클에서만 제공))
+--비교연산자 : >, >=, <, <=
+--등가비교연산자 : =, !=, <>, ^= (!=,<>,^= : A값과 B값이 다를 경우 true, 같을 경우 false)
+--논리부정연산자 : NOT
+--IN 연산자
+--BETWEEN A AND B 연산자
+--LIKE 연산자와 와일드 카드(_,%)
+--IS NULL 연산자
+--집합연산자 : UNION(합집합-중복제거),UNION ALL(합집합-중복집합),MINUS(차집합),INTERSECT(교집합)
+
+select *
+from emp
+where sal*12 = 36000;
+
+select *
+from emp
+where ename>'F';
+
+select *
+from emp
+where ename <= 'FORZ';
+
+select *
+from emp
+where JOB='MANAGER' or JOB='SALESMAN' or JOB='CLERK';
+
+select *
+from emp
+where sal != 3000;
+
+select *
+from emp
+where job IN('MANAGER','SALESMAN','CLERK');
+
+select *
+from emp
+where job NOT IN('MANAGER','SALESMAN','CLERK');
+
+select *
+from emp
+where deptno in(10,20);
+
+select *
+from emp
+where sal >= 2000 and sal <= 3000;
+
+
